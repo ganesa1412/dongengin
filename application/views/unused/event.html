@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<title>Dongeng.in - Hidupkan Dunia dengan Berbagai Cerita </title>
+	<link rel="icon" href="assets/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/aos.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/jssocials.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/leaflet.css">
+	<script type="text/javascript" src="assets/js/leaflet.js"></script>
+</head>
+<body>
+	<div id="navbar" class="container-fluid bg-green-darker" data-aos="fade-down">
+		<div class="row section">
+			<div class="col-md-3">
+				<a href="./"><img src="assets/images/logo.png" id="logo" width="100%"></a>
+			</div>
+			<div class="col-md-9 text-right">
+				<ul class="font-gotham-bold font-white font-sm">
+					<a href="#"><li>Dongeng</li></a>
+					<a href="#"><li>Komunitas</li></a>
+					<a href="#"><li>Event</li></a>
+					<li>|</li>
+					<a href="#" data-toggle="modal" data-target="#LoginModal"><li>Masuk</li></a>
+					<li><a href="#" class="button btn-green" data-toggle="modal" data-target="#DaftarModal">Daftar</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- MODAL LOGIN -->
+	<form class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header font-white">
+	        <h5 class="modal-title font-md font-gotham-bold" id="exampleModalLabel">Masuk</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center">
+	        <input type="email" name="email" placeholder="Email" class="form-control input-lg"><br>
+	        <input type="password" name="password" placeholder="Password" class="form-control input-lg"><br>
+	      </div>
+	      <div class="modal-footer text-right">
+	        <button type="submit" class="button btn-green font-white font-sm">Masuk</button>
+	      </div>
+	    </div>
+	  </div>
+	</form>
+
+	<!-- MODAL DAFTAR -->
+	<form class="modal fade" id="DaftarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header font-white">
+	        <h5 class="modal-title font-md font-gotham-bold" id="exampleModalLabel">Daftar</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center row">
+	      	<div class="col-md-6">
+	      		<input type="text" name="name" placeholder="Nama Lengkap" class="form-control input-lg"><br>
+	      		<input type="email" name="email" placeholder="Email" class="form-control input-lg"><br>
+	        	<input type="password" name="password" placeholder="Password" class="form-control input-lg"><br>
+	        	<input type="password" name="password2" placeholder="Ulangi Password" class="form-control input-lg"><br>
+	      	</div>
+	      	<div class="col-md-6">
+	      		<input type="number" name="phone" placeholder="Telepon" class="form-control input-lg"><br>
+	      		<select class="form-control input-lg" id="prov">
+	      			<option>Provinsi</option>
+	      		</select><br>
+	      		<select class="form-control input-lg" id="kota" name="id_kecamatan">
+	      			<option>Kota</option>
+	      		</select><br>
+	      	</div>
+	      </div>
+	      <div class="modal-footer text-right">
+	        <button type="submit" class="button btn-green font-white font-sm">Daftar</button>
+	      </div>
+	    </div>
+	  </div>
+	</form>
+
+	<!-- Header -->
+	<div class="container-fluid bg-green" id="header-event">
+		<div class="row section">
+			<div class="col-md-5 hc-left">
+				<h2 class="font-gotham-bold font-xl font-white text-left" data-aos="fade-up" data-aos-delay="100">Yuk! <br>Ikut Ndongeng Bareng!</h2>
+			</div>
+			<div class="col-md-7 hc-right text-right">
+				<img src="assets/images/community/star.png" width="60%" data-aos="fade-left" class="comm-star" data-aos-delay="200">
+			</div>
+		</div>
+	</div>
+
+	<!-- MAP -->
+	<div class="container-fluid" id="event-page">
+		<form class="row">
+			<div class="col-md-12">
+				<span>Lokasi : </span>
+				<select class="form-control form-control-sm" name="id_provinsi">
+					<option>Semua Provinsi</option>
+				</select>
+				<select class="form-control form-control-sm" name="id_kota">
+					<option>Semua Kabupaten/Kota</option>
+				</select>
+				
+				<span> | </span>
+				
+				<select class="form-control form-control-sm" name="range" id="range">
+					<option value="1">Hari Ini</option>
+					<option value="2">Minggu Ini</option>
+					<option value="3">Bulan Ini</option>
+					<option value="4">Pilih Tanggal :</option>
+				</select>
+
+				<input type="date" name="date_start" class="form-control form-control-sm" placeholder="Tanggal Mulai">
+				<span> - </span>
+				<input type="date" name="date_end" class="form-control form-control-sm">
+
+				<button type="input" class="button btn-green btn-sm"><i class="fa fa-search"></i> Cari</button>
+			</div>
+		</form>
+		<div class="row" id="map">
+
+			<div id="event-list" class="bg-white">
+				<h2 class="font-gotham-bold font-md">Daftar Event</h2>
+				<div class="el-container">
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					<div class="row event-panel">
+						<div class="col-md-5" style="background-image: url(assets/images/event/_.png);">
+							<div class="event-date bg-green font-white text-center">
+								<p class="font-gotham-bold font-sm">20 Mar</p>
+								<p class="font-gotham-bold font-xs">2020</p>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<h2 class='font-sm font-gotham-bold'>Judul Disini, Hehe Mantab Gayn</h2>
+							<p class='font-gotham-light font-xs'>
+								<i class='fa fa-map-marker'></i> Ini Alamatnya<br>
+								<i class='fa fa-users'></i> Komunitasnya disini
+							</p>
+							<a href='#' class='button btn-green font-xs text-center'>Selengkapnya</a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<script type="text/javascript">
+				var map = L.map('map').setView([-1, 105], 5);
+
+				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+				}).addTo(map);
+
+				var newMarker = L.icon({
+		            iconUrl: 'assets/images/marker.png',
+
+		            iconSize:     [41, 59],
+		            iconAnchor:   [20, 50],
+		            popupAnchor:  [0, -60]
+		        });
+
+				var marker1pop = "<div class='bg-pink popup-head text-center font-white font-sm font-gotham-bold'>Judul Disini</div>"+
+					"<p class='font-gotham-light font-xs'><i class='fa fa-map-marker'></i> Ini Alamatnya</p>"+
+					"<p class='font-gotham-light font-xs'><i class='fa fa-calendar'></i> Tanggal</p>"+
+					"<p class='font-gotham-light font-xs'><i class='fa fa-users'></i> Komunitasnya disini</p>"+
+					"<a href='#' class='button btn-green btn-block font-xs text-center'>Selengkapnya</a><br>" +
+					"<img src='assets/images/petik.png' class='popup-petik'>";
+		        var marker1 = L.marker(['-7.316820 ', '112.728000'], {icon: newMarker}).addTo(map)
+			    .bindPopup(marker1pop, {minWidth:200});
+
+			</script>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<div id="footer" class="container-fluid bg-blue-darken">
+		<div class="row section">
+			<div class="col-md-3">
+				<img src="assets/images/logo_white.png" width="100%">
+			</div>
+			<div class="col-md-9 text-right font-white font-lg">
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-facebook-square"></i></a>
+				<a href="#"><i class="fa fa-youtube-square"></i></a>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/swiper.min.js"></script>
+<script type="text/javascript" src="assets/js/jssocials.js"></script>
+<script type="text/javascript" src="assets/js/aos.js"></script>
+<script type="text/javascript" src="assets/js/global.js"></script>
+</body>
+</html>

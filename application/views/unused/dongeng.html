@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<title>Dongeng.in - Hidupkan Dunia dengan Berbagai Cerita </title>
+	<link rel="icon" href="assets/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/aos.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/jssocials.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/leaflet.css">
+</head>
+<body>
+	<div id="navbar" class="container-fluid bg-green-darker" data-aos="fade-down">
+		<div class="row section">
+			<div class="col-md-3">
+				<a href="./"><img src="assets/images/logo.png" id="logo" width="100%"></a>
+			</div>
+			<div class="col-md-9 text-right">
+				<ul class="font-gotham-bold font-white font-sm">
+					<a href="#"><li>Dongeng</li></a>
+					<a href="#"><li>Komunitas</li></a>
+					<a href="#"><li>Event</li></a>
+					<li>|</li>
+					<a href="#" data-toggle="modal" data-target="#LoginModal"><li>Masuk</li></a>
+					<li><a href="#" class="button btn-green" data-toggle="modal" data-target="#DaftarModal">Daftar</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- MODAL LOGIN -->
+	<form class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header font-white">
+	        <h5 class="modal-title font-md font-gotham-bold" id="exampleModalLabel">Masuk</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center">
+	        <input type="email" name="email" placeholder="Email" class="form-control input-lg"><br>
+	        <input type="password" name="password" placeholder="Password" class="form-control input-lg"><br>
+	      </div>
+	      <div class="modal-footer text-right">
+	        <button type="submit" class="button btn-green font-white font-sm">Masuk</button>
+	      </div>
+	    </div>
+	  </div>
+	</form>
+
+	<!-- MODAL DAFTAR -->
+	<form class="modal fade" id="DaftarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header font-white">
+	        <h5 class="modal-title font-md font-gotham-bold" id="exampleModalLabel">Daftar</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body text-center row">
+	      	<div class="col-md-6">
+	      		<input type="text" name="name" placeholder="Nama Lengkap" class="form-control input-lg"><br>
+	      		<input type="email" name="email" placeholder="Email" class="form-control input-lg"><br>
+	        	<input type="password" name="password" placeholder="Password" class="form-control input-lg"><br>
+	        	<input type="password" name="password2" placeholder="Ulangi Password" class="form-control input-lg"><br>
+	      	</div>
+	      	<div class="col-md-6">
+	      		<input type="number" name="phone" placeholder="Telepon" class="form-control input-lg"><br>
+	      		<select class="form-control input-lg" id="prov">
+	      			<option>Provinsi</option>
+	      		</select><br>
+	      		<select class="form-control input-lg" id="kota" name="id_kecamatan">
+	      			<option>Kota</option>
+	      		</select><br>
+	      	</div>
+	      </div>
+	      <div class="modal-footer text-right">
+	        <button type="submit" class="button btn-green font-white font-sm">Daftar</button>
+	      </div>
+	    </div>
+	  </div>
+	</form>
+
+	<!-- Content & Sidebar -->
+	<div class="container-fluid" id="ctn">
+		<div class="row section">
+			<!-- Main Content -->
+			<div class="col-md-8" id="dongeng-page">
+				<form data-aos="fade">
+					<input type="text" name="keyword" placeholder="Cari" class="form-control form-control-sm">
+					<select class="form-control form-control-sm">
+						<option>Kategori</option>
+					</select>
+					<button type="submit" class="button btn-green btn-sm"><i class="fa fa-search"></i> Cari</button>
+				</form>
+
+				<div class="row dongeng-panel" data-aos="fade">
+					<div class="col-md-4">
+						<img src="assets/images/dongeng/_.png">
+					</div>
+					<div class="col-md-8">
+						<a href="#"><h2 class="font-gotham-bold font-md">Pendekar Neon di Negeri Sihir</h2></a>
+						<div class="line bg-black"></div>
+						<p class="font-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<span class="badge bg-green font-white">Legenda</span>
+						<span class="badge bg-green font-white">Sulistya</span>
+					</div>
+					<div class="col-md-12">
+						<div class="line bg-yellow"></div>
+					</div>
+				</div>
+
+				<div class="row dongeng-panel" data-aos="fade">
+					<div class="col-md-4">
+						<img src="assets/images/dongeng/_.png">
+					</div>
+					<div class="col-md-8">
+						<a href="#"><h2 class="font-gotham-bold font-md">Pendekar Neon di Negeri Sihir</h2></a>
+						<div class="line bg-black"></div>
+						<p class="font-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<span class="badge bg-green font-white">Legenda</span>
+						<span class="badge bg-green font-white">Sulistya</span>
+					</div>
+					<div class="col-md-12">
+						<div class="line bg-yellow"></div>
+					</div>
+				</div>
+
+				<div class="row dongeng-panel" data-aos="fade">
+					<div class="col-md-4">
+						<img src="assets/images/dongeng/_.png">
+					</div>
+					<div class="col-md-8">
+						<a href="#"><h2 class="font-gotham-bold font-md">Pendekar Neon di Negeri Sihir</h2></a>
+						<div class="line bg-black"></div>
+						<p class="font-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<span class="badge bg-green font-white">Legenda</span>
+						<span class="badge bg-green font-white">Sulistya</span>
+					</div>
+					<div class="col-md-12">
+						<div class="line bg-yellow"></div>
+					</div>
+				</div>				
+
+				<div class="row dongeng-panel" data-aos="fade">
+					<div class="col-md-4">
+						<img src="assets/images/dongeng/_.png">
+					</div>
+					<div class="col-md-8">
+						<a href="#"><h2 class="font-gotham-bold font-md">Pendekar Neon di Negeri Sihir</h2></a>
+						<div class="line bg-black"></div>
+						<p class="font-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<span class="badge bg-green font-white">Legenda</span>
+						<span class="badge bg-green font-white">Sulistya</span>
+					</div>
+					<div class="col-md-12">
+						<div class="line bg-yellow"></div>
+					</div>
+				</div>
+
+				<div class="row dongeng-panel" data-aos="fade">
+					<div class="col-md-4">
+						<img src="assets/images/dongeng/_.png">
+					</div>
+					<div class="col-md-8">
+						<a href="#"><h2 class="font-gotham-bold font-md">Pendekar Neon di Negeri Sihir</h2></a>
+						<div class="line bg-black"></div>
+						<p class="font-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						<span class="badge bg-green font-white">Legenda</span>
+						<span class="badge bg-green font-white">Sulistya</span>
+					</div>
+					<div class="col-md-12">
+						<div class="line bg-yellow"></div>
+					</div>
+				</div>
+
+				
+			</div>
+
+			<!-- Sidebar -->
+			<div class="col-md-4" id="sidebar">
+				<div class="bg-pink2 font-white" data-aos="zoom-in">
+					<h2 class="font-gotham-medium font-md">
+						<img src="assets/images/icon/story.png">
+						Dongeng Populer
+					</h2>
+					<div class="dongeng-list row align-item-center">
+						<div class="col-md-3">
+							<img src="assets/images/dongeng/_.png">
+						</div>
+						<div class="col-md-9 align-middle">
+							<h3 class="font-sm"><a href="#">Tuyul dan Mbak Yul VS Buto Ijo The Movie</a></h2>
+						</div>
+						<div class="col-md-3">
+							<img src="assets/images/dongeng/_.png">
+						</div>
+						<div class="col-md-9 align-middle">
+							<h3 class="font-sm"><a href="#">Timun Mas Naik Haji</a>
+						</div>
+						<div class="col-md-3">
+							<img src="assets/images/dongeng/_.png">
+						</div>
+						<div class="col-md-9 align-middle">
+							<h3 class="font-sm"><a href="#">Gadis Bertudung Saji</a></h2>
+						</div>
+					</div>
+					<br>
+					<h2 class="font-gotham-medium font-md">
+						<img src="assets/images/icon/community.png">
+						Komunitas Teratas
+					</h2>
+					<ul class="comm-list font-gotham-light font-sm">
+						<li><a href="#">Komunitas Pemuja Rahasia</a> <span class="badge bg-green">Surabaya</span></li>
+						<li><a href="#">Komunitas Pemuja Rahasia</a> <span class="badge bg-green">Surabaya</span></li>
+						<li><a href="#">Komunitas Pemuja Rahasia</a> <span class="badge bg-green">Surabaya</span></li>
+						<li><a href="#">Komunitas Pemuja Rahasia</a> <span class="badge bg-green">Surabaya</span></li>
+					</ul>
+					<br>
+					<h2 class="font-gotham-medium font-md">
+						<img src="assets/images/icon/event.png">
+						Event Terdekat
+					</h2>
+					<div class="event-list row align-item-center">
+						<div class="col-md-3">
+							<div class="event-date text-center">
+								<h2 class="font-gotham-bold font-md">23</h2>
+								<p class="font-sm">Feb</p>
+							</div>
+						</div>
+						<div class="col-md-9 align-middle">
+							<h3 class="font-sm"><a href="#">Dies Natalis Unesa 2021</a></h3>
+						</div>
+						<div class="col-md-3">
+							<div class="event-date text-center">
+								<h2 class="font-gotham-bold font-md">23</h2>
+								<p class="font-sm">Feb</p>
+							</div>
+						</div>
+						<div class="col-md-9 align-middle">
+							<h3 class="font-sm"><a href="#">Koin untuk Esa, Bantu Esa Beli Kuota</a></h3>
+						</div>
+						<div class="col-md-3">
+							<div class="event-date text-center">
+								<h2 class="font-gotham-bold font-md">23</h2>
+								<p class="font-sm">Feb</p>
+							</div>
+						</div>
+						<div class="col-md-9 align-middle">
+							<h3 class="font-sm"><a href="#">Koin untuk Esa</a></h3>
+						</div>
+					</div>
+					<img src="assets/images/side-ballon.png" class="side-ballon">
+					<img src="assets/images/petik.png" class="side-quote">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+	<div id="footer" class="container-fluid bg-blue-darken">
+		<div class="row section">
+			<div class="col-md-3">
+				<img src="assets/images/logo_white.png" width="100%">
+			</div>
+			<div class="col-md-9 text-right font-white font-lg">
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-facebook-square"></i></a>
+				<a href="#"><i class="fa fa-youtube-square"></i></a>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/swiper.min.js"></script>
+<script type="text/javascript" src="assets/js/jssocials.js"></script>
+<script type="text/javascript" src="assets/js/aos.js"></script>
+<script type="text/javascript" src="assets/js/leaflet.js"></script>
+<script type="text/javascript" src="assets/js/global.js"></script>
+</body>
+</html>
