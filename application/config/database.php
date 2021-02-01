@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => '103.145.227.169',
 	'username' => 'pojokmed_itc',
 	//'username' => 'root',
 	 'password' => '#ALL-4-ONE',
